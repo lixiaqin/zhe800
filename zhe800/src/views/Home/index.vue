@@ -1,20 +1,26 @@
+
 <template>
    <div class="home-page">
-     <HeaderBar>
-       
+     <HeaderBar> 
         <div class="header-center" slot="header-center"></div> 
         <div class="header-right" slot="header-right"></div> 
      </HeaderBar>
+     <wrap></wrap>
+     <Footer></Footer>
      
    </div>
 </template>
 
 <script>
 import HeaderBar from '../../components/Header'
+import Footer from '@/components/Footer-bar'
+import wrap from '@/components/Wrap'
 export default {
   name: 'home',
   components:{
-     HeaderBar
+     HeaderBar,
+     Footer,
+     wrap
   },
   data () {
     return {
@@ -26,7 +32,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-
+.home-page{
+  margin-bottom:.4rem;
+}
 .header-center{
     width: .7rem;
     height: .26rem;
@@ -41,3 +49,6 @@ export default {
     margin-top: .07rem;
 }
 </style>
+
+
+
