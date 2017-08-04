@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Group from '@/components/Group'
-import Mine from '@/components/Mine'
-import ShopCar from '@/components/ShopCar'
-import Special from '@/components/Special'
+import Home from '@/views/Home'
+import Group from '@/views/Group'
+import Mine from '@/views/Mine'
+import ShopCar from '@/views/ShopCar'
+import Special from '@/views/Special'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'gome',
+      name: 'home',
       component: Home
     },{
       path: '/group',
