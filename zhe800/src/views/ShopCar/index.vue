@@ -5,13 +5,13 @@
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  data () {
-    return {
+  export default {
+    name: 'ShopCar',
+    data () {
+      return {
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
