@@ -32,6 +32,7 @@
   padding: 0.05rem 0;
   z-index:100;
   background:#fff;
+  border-top:.01rem solid #D8D8D8;
   nav{
     width: 100%;
     display: flex;
