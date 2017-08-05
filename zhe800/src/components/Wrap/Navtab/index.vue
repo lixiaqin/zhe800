@@ -43,10 +43,7 @@ export default {
        swiperOption: {
            mousewheelControl : true,
           mousewheelReleaseOnEdges : true,
-          onSlideChangeStart: function(swiper){
-              var swiper=document.getElementByClassName('swiper-wrapper')
-              console.log(swiper)
-            }
+          slidesPerView:'auto'
         }
     }
   }
@@ -86,8 +83,8 @@ export default {
   line-height:.4rem;
   margin-left:15%;
   .swiper-slide{
-    padding:0 .2rem;
-      width:auto !important;
+    padding:0 .1rem;
+      
   }
 
 }
