@@ -33,8 +33,7 @@ export default {
   justify-content: center;
   align-items: center;
   position:relative;
-  border-bottom: .001rem solid #d9d9d9;
-  background-color: #fff;
+
   padding:.05rem 0;
   .header-left{
     position:absolute;

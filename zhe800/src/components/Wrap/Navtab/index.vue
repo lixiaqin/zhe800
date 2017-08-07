@@ -1,16 +1,12 @@
 <template>
-  <div class="nav-tab">
+  <div class="nav-tab" v-affix="20">
      <div class="nav-recommend">推荐</div>
-      <div class="scroll-view">
-          
-            <swiper :options="swiperOption" ref="mySwiper" >
-           
-            <swiper-slide v-for="i in navList"  id="navlists" style="width:60px">
+      <div class="scroll-view">      
+           <swiper :options="swiperOption" ref="mySwiper" >
+            <swiper-slide v-for="i in navList"  id="navlists">
                {{i.name}}
-            </swiper-slide>
-            
-           </swiper>
-          
+            </swiper-slide>  
+           </swiper>    
       </div>
       
      <slot name="downkey" class="downkey">dfdf</slot>
@@ -18,7 +14,8 @@
 </template>
 
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import $ from 'zepto'
 export default {
   name: 'navTab',
   data () {
@@ -46,6 +43,28 @@ export default {
           slidesPerView:'auto'
         }
     }
+  },
+  directives:{
+    affix:{
+        inserted: function(el, binding) {
+            var els = el;
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > binding.value) {
+                    $(els).css({
+                        'position': 'fixed'
+                    }).animate({
+                        'top': 0,
+                        'left': 0
+                    })
+                } else {
+                    $(els).css({
+                        'position': 'relative'
+                    })
+                }
+            })
+
+        }
+    }
   }
 }
 </script>
@@ -55,6 +74,7 @@ export default {
 .nav-tab{
     width:100%;
     height:.4rem;
+    background:#fff;
     position:relative;
     font-size:.16rem;
     .nav-recommend{
@@ -83,8 +103,8 @@ export default {
   line-height:.4rem;
   margin-left:15%;
   .swiper-slide{
-    padding:0 .1rem;
-      
+    padding:0 .05rem;
+    width:65px;text-align:center
   }
 
 }

@@ -1,7 +1,7 @@
 
 <template>
    <div class="home-page">
-     <HeaderBar> 
+     <HeaderBar class="header"> 
         <div class="header-center" slot="header-center"></div> 
         <div class="header-right" slot="header-right"></div> 
      </HeaderBar>
@@ -34,6 +34,10 @@ export default {
 <style scoped lang="less">
 .home-page{
   margin-bottom:.4rem;
+}
+.header{
+    border-bottom: .001rem solid #d9d9d9;
+    background-color: #fff;
 }
 .header-center{
     width: .7rem;
