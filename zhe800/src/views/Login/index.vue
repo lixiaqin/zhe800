@@ -23,13 +23,13 @@
       </div>
       <div class="account-box">
         <p>
-          <input type="text" placeholder="手机号/邮箱/用户名" class="user">
+          <input type="text" placeholder="手机号/邮箱/用户名" class="user" v-model="loginInfo.user">
         </p>
         <p>
-          <input type="password" placeholder="密码" class="pwd">
+          <input type="password" placeholder="密码" class="pwd" v-model="loginInfo.pwd">
         </p>
       </div>
-      <button class="login">登录</button>
+      <button class="login" @click="loginDo">登录</button>
       <div class="loginP"><a href="javascript:;">快速注册</a><a href="javascript:;">忘记密码</a></div>
     </section>
     <section class="others">
@@ -44,6 +44,20 @@
     name: 'Login',
     data () {
       return {
+          loginInfo:{
+              user:'',
+              pwd:''
+          }
+      }
+    },
+    methods:{
+      loginDo(){
+          if(this.loginInfo.user&&this.loginInfo.user){
+            this.$store.dispatch('login_in',this.loginInfo)
+            this.$router.push('/')
+          }else{
+              alert('用户名和密码不能为空')
+          }
       }
     }
   }

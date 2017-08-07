@@ -1,14 +1,24 @@
 <template>
   <div class="mine-page">
-    <div class="mine-title">
-      <!--<HeaderBar>-->
-        <!--<div slot="headerLift">ss</div>-->
-        <!---->
-      <!--</HeaderBar>-->
-       <div class="header"></div>
-       <ul class="loginin">
-         <li><router-link to="/login">登陆</router-link></li>| <li>注册</li>
-       </ul>
+    <div class="mine-title" v-if="$store.state.userLogin.userInfo">
+         <HeaderBar>
+           <div slot="header-left"><span class="back"></span></div>
+           <div slot="header-center">个人中心</div>
+           <div slot="header-right">退出</div>
+         </HeaderBar>
+        <div class="user">
+            <span class="name">{{$store.state.userLogin.userInfo.user}}</span><span class="go"></span>
+        </div>
+    </div>
+    <div class="mine-title" v-else>
+        <HeaderBar>
+          <div slot="header-left"><span class="back"></span></div>
+          <div slot="header-center">个人中心</div>
+          <div slot="header-right"></div>
+        </HeaderBar>
+        <ul class="loginin">
+          <li><router-link to="/login">登陆</router-link></li>| <li><router-link to="/login">注册</router-link></li>
+        </ul>
     </div>
     <div class="order">
       <span>我的订单</span>
@@ -42,8 +52,13 @@
             {name:'足迹'},
             {name:'帮助与客服'},
             {name:'下载折800APP'}
-          ]
+          ],
+          user:''
       }
+    },
+    created(){
+        this.user=this.$store.state.userLogin.userInfo
+        console.log(this.user)
     },
     components:{
       HeaderBar,
@@ -54,6 +69,43 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+  .header-bar{
+    background: -webkit-linear-gradient(left, rgba(245, 49, 17, 0.91), rgba(255, 71, 0, 0.93));
+    border: none;
+    color: #fff;
+    .header-center{
+      div{
+        font-size: .16rem;
+      }
+    }
+    .back{
+      background: url("../../static/images/back.png") no-repeat;
+      display: block;
+      width: .2rem;
+      height: .2rem;
+      background-size: .2rem;
+    }
+  }
+  .user{
+    width: 100%;
+    height: .4rem;
+    display:flex;
+    margin-top: .1rem;
+    align-items: center;
+    justify-content: space-between;
+  .name{
+    font-size: .18rem;
+    color: #fff;
+    margin-left: .2rem;
+  }
+    .go{
+      display: block;
+      width: .2rem;
+      height: .2rem;
+      background: url("../../static/images/go.png") no-repeat;
+      background-size: .1rem;
+    }
+  }
 .mine-page{
   width: 100%;
   height: 100%;
@@ -81,7 +133,9 @@
        font-size:18px;
        text-align: center;
        vertical-align: middle;
-
+       a{
+         color: #fff;
+       }
      }
    }
 }

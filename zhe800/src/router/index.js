@@ -12,14 +12,22 @@ Vue.use(Router)
 
 export default new Router({
 
-    routes: [{
-            path: '/',
-            name: 'home',
-            component: Home
-        }, {
-            path: '/group',
-            name: 'group',
-            component: Group
+    routes: [
+        {
+          path: '/',
+          redirect:{
+            'name':'home'
+          }
+        },
+        {
+          path: '/home',
+          name: 'home',
+          component: Home
+        },
+        {
+          path: '/group',
+          name: 'group',
+          component: Group
         },
         {
             path: '/mine',

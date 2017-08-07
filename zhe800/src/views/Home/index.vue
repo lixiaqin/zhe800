@@ -1,25 +1,25 @@
 
 <template>
    <div class="home-page">
-     <HeaderBar> 
-        <div class="header-center" slot="header-center"></div> 
-        <div class="header-right" slot="header-right"></div> 
+     <HeaderBar>
+        <div class="header-center" slot="header-center"></div>
+        <div class="header-right" slot="header-right"></div>
      </HeaderBar>
      <wrap></wrap>
-     <Footer></Footer>
-     
+     <FooterBar></FooterBar>
+
    </div>
 </template>
 
 <script>
 import HeaderBar from '../../components/Header'
-import Footer from '@/components/Footer-bar'
+import FooterBar from '@/components/Footer-bar'
 import wrap from '@/components/Wrap'
 export default {
   name: 'home',
   components:{
      HeaderBar,
-     Footer,
+    FooterBar,
      wrap
   },
   data () {

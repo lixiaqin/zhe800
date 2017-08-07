@@ -2,14 +2,13 @@
    <div class="header-bar">
     <div class="header-left">
       <slot name="header-left"></slot>
-    </div> 
+    </div>
     <div class="header-center">
        <slot name="header-center"></slot>
     </div>
      <div class="header-right">
        <slot name="header-right"></slot>
-    </div>
-    
+     </div>
    </div>
 </template>
 
@@ -33,8 +32,6 @@ export default {
   justify-content: center;
   align-items: center;
   position:relative;
-  border-bottom: .001rem solid #d9d9d9;
-  background-color: #fff;
   padding:.05rem 0;
   .header-left{
     position:absolute;
