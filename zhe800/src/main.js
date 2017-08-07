@@ -3,12 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+import mock from './mock/mock'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store'
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
-    /* eslint-disable no-new */
+var instance = axios.create({
+    baseURL: "api", //打包上线的时候替换baseURL
+    timeout: 1000,
+    headers: { 'X-Custom-Header': 'foobar' }
+});
+Vue.prototype.$axios = instance;
+/* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,
