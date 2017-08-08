@@ -8,26 +8,26 @@ import Mine from '@/views/Mine'
 import ShopCar from '@/views/ShopCar'
 import Special from '@/views/Special'
 import Login from '@/views/Login'
+import Classify from '@/views/Classify'
 Vue.use(Router)
 
 export default new Router({
 
-    routes: [
-        {
-          path: '/',
-          redirect:{
-            'name':'home'
-          }
+    routes: [{
+            path: '/',
+            redirect: {
+                'name': 'home'
+            }
         },
         {
-          path: '/home',
-          name: 'home',
-          component: Home
+            path: '/home',
+            name: 'home',
+            component: Home
         },
         {
-          path: '/group',
-          name: 'group',
-          component: Group
+            path: '/group',
+            name: 'group',
+            component: Group
         },
         {
             path: '/mine',
@@ -48,6 +48,12 @@ export default new Router({
             path: '/login',
             name: 'login',
             component: Login
+        },
+        {
+            path: '/classify',
+            name: 'Classify',
+            component: Classify
+                // component: resolve => require(['@/views/Detail'], resolve)
         }
 
     ]

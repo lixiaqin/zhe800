@@ -1,10 +1,14 @@
-<<<<<<< HEAD
+
 
 <template>
    <div class="home-page">
      <HeaderBar>
-        <div class="header-center" slot="header-center"></div>
-        <div class="header-right" slot="header-right"></div>
+        <div class="header-center" slot="header-center"></div>  
+        <div class="header-right" slot="header-right" @click="fn">
+        <router-link to="/classify">
+          <img src="//status.tuanimg.com/statics/mz/index/img/category-icon.png" />
+        </router-link>
+        </div>
      </HeaderBar>
      <wrap></wrap>
      <FooterBar></FooterBar>
@@ -20,12 +24,17 @@ export default {
   name: 'home',
   components:{
      HeaderBar,
-    FooterBar,
+     FooterBar,
      wrap
   },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    fn(){
+      console.log(1)
     }
   }
 }
@@ -45,71 +54,10 @@ export default {
 .header-right{
     width:.2rem;
     height:.18rem;
-    background: url(//status.tuanimg.com/statics/mz/index/img/category-icon.png) no-repeat 0 0;
-    background-size: .2rem .18rem;
     margin-top: .07rem;
-}
-</style>
-
-
-
-=======
-
-<template>
-   <div class="home-page">
-     <HeaderBar class="header"> 
-        <div class="header-center" slot="header-center"></div> 
-        <div class="header-right" slot="header-right"></div> 
-     </HeaderBar>
-     <wrap></wrap>
-     <Footer></Footer>
-     
-   </div>
-</template>
-
-<script>
-import HeaderBar from '../../components/Header'
-import Footer from '@/components/Footer-bar'
-import wrap from '@/components/Wrap'
-export default {
-  name: 'home',
-  components:{
-     HeaderBar,
-     Footer,
-     wrap
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    img{
+      width:100%;
     }
-  }
-}
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
-.home-page{
-  margin-bottom:.4rem;
-}
-.header{
-    border-bottom: .001rem solid #d9d9d9;
-    background-color: #fff;
-}
-.header-center{
-    width: .7rem;
-    height: .26rem;
-    background: url(//status.tuanimg.com/statics/mz/common/img/logo116x45.png) no-repeat 0 0;
-    background-size: .7rem .26rem;
-}
-.header-right{
-    width:.2rem;
-    height:.18rem;
-    background: url(//status.tuanimg.com/statics/mz/index/img/category-icon.png) no-repeat 0 0;
-    background-size: .2rem .18rem;
-    margin-top: .07rem;
 }
 </style>
 
-
-
->>>>>>> fe5855765cb08abced04ce7330a31a6108f3b500

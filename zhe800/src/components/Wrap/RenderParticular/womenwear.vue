@@ -17,22 +17,27 @@
       <div class="content-slider-item">
           <div class="slider-page" v-for="item in tablist">
           <slot :name="item.component"></slot>
-          {{item.component}}
           </div> 
       </div>
     </div>
    
+    <TabList :tablist='tablist'>
+        <div slot="hotSale">sdfdsfds</div>
+        <div slot="hotBrand">sdfsdfds</div>
+     </TabList>
     
   </div>
 </template>
 
 <script>
 import carousel from '../compontent/carousel.vue'
+import TabList from '@/components/Wrap/compontent/tablist'
 import $ from 'zepto'
 export default {
   name: 'woman-clothes',
   components:{
-     carousel
+     carousel,
+     TabList
   },
   data () {
     return {
