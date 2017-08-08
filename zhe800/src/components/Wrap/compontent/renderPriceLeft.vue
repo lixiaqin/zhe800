@@ -1,6 +1,6 @@
 <template>
   <div class="render-price">
-    
+
     <div class="PriceDetail" v-for='item in priceList'>
       <div class="pimg">
          <img :src="item.imgurl"/>
@@ -19,7 +19,7 @@
 export default {
   name: 'render-price',
   components:{
-     
+
   },
   data () {
     return {
@@ -29,8 +29,7 @@ export default {
   created(){
       let that=this;
       this.$axios.get('/priceData').then((res)=>{
-         
-          that.priceList=res.data.priceList;
+          that.priceList=res.data.explosionData;
       })
   }
 }
@@ -56,8 +55,8 @@ export default {
         .Pintroduce{
             width:90%;
             margin-left:5%;
-            white-space:nowrap; 
-            overflow:hidden; 
+            white-space:nowrap;
+            overflow:hidden;
             text-overflow:ellipsis;
             margin:.05rem 5%;
         }

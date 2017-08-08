@@ -1,15 +1,13 @@
 <template>
   <div class="woman-clothes">
      <carousel>
-       
-        <div slot="logoimg" class="logoimg">
-         <img src="//z11.tuanimg.com/imagev2/wxyy/750x210.0c68689180d3f829af45494526673fad.png" alt="">
-        </div>
+
+
         <div slot='title' class='title'>
          <img src="//z2.tuanimg.com/imagev2/wxyy/750x70.41d82c125a3ea3427383ef70ddb0c42a.png" />
        </div>
      </carousel>
-     <div class="navtabs">
+     <div class="navtabs" v-Affix="40">
         <div class="tabsList"  v-for="(item,index) in tablist"><span @click="tabfn(index)">{{item.name}}</span></div>
         <div class="line"></div>
      </div>
@@ -18,11 +16,11 @@
           <div class="slider-page" v-for="item in tablist">
           <slot :name="item.component"></slot>
           {{item.component}}
-          </div> 
+          </div>
       </div>
     </div>
-   
-    
+
+
   </div>
 </template>
 
@@ -45,6 +43,9 @@ export default {
       }],
       addClass:false
     }
+  },
+  mounted(){
+    $(this.$el).find('.tabsList').find('span').eq(0).addClass('choose')
   },
   methods:{
     tabfn(index){
@@ -89,17 +90,17 @@ export default {
       line-height:.4rem;
     }
   }
-  
+
 }
 .content-slider{
         width:100%;overflow:hidden;
         .content-slider-item{
             width:200%;
-           
+
            .slider-page{
                width:50%;
               float:left;
-              
+
            }
         }
     }

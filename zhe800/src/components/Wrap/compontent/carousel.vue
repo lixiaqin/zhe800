@@ -2,7 +2,7 @@
   <div id="autoPhoto">
      <div class='banner'>
        <swiper :options="swiperOption" ref="mySwiper">
-         <swiper-slide v-for="item in ThemeList.themelistt">
+         <swiper-slide v-for="item in ThemeList">
           <img :src="item.imgurl" alt="">
          </swiper-slide>
          <div class="swiper-pagination"  slot="pagination"></div>
@@ -10,14 +10,16 @@
      </div>
      <div class='tablist'>
        <ul class="tabuls">
-         <li v-for="items in ThemeList.themelistt">
-          <img :src="items.iconurl" alt="">
-          <span>{{items.tabname}}</span>
+         <li v-for="items in itemList">
+          <img :src="items.imgurl" alt="">
+          <span>{{items.name}}</span>
          </li>
        </ul>
-       <slot name="logoimg" class="logoimg"></slot>
-       <div class="three-banner">
-          <div class='three-banner-list' v-for="item in ThemeList.threeBanner">
+       <div class="logoimg" v-if="newPeopleimg">
+         <img :src="newPeopleimg" alt="">
+       </div>
+       <div class="three-banner clearfix">
+          <div class='three-banner-list' v-for="item in threeList">
             <img :src="item.imgurl" alt="">
           </div>
        </div>
@@ -36,18 +38,21 @@ export default {
            autoplay: 1000,
            pagination : '.swiper-pagination'
         },
-        ThemeList:{
-           
-        }
-       
+        ThemeList:[],
+        itemList:[],
+        newPeopleimg:'',
+        threeList:[]
+
       }
   },
   created(){
       let that=this;
       this.$axios.get('/priceData').then((res)=>{
-        
-          that.ThemeList=res.data.ThemeList;
-            console.log(that.ThemeList)
+          console.log(res)
+          that.ThemeList=res.data.bannerList;
+          that.itemList=res.data.itemList;
+          that.newPeopleimg=res.data.newPeopleimg;
+          that.threeList=res.data.threeList;
       })
   }
 }

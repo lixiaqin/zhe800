@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template>
    <div class="header-bar">
     <div class="header-left">
@@ -45,19 +44,19 @@ export default {
   }
 }
 </style>
-=======
+
 <template>
    <div class="header-bar">
     <div class="header-left">
       <slot name="header-left"></slot>
-    </div> 
+    </div>
     <div class="header-center">
        <slot name="header-center"></slot>
     </div>
      <div class="header-right">
        <slot name="header-right"></slot>
     </div>
-    
+
    </div>
 </template>
 
@@ -94,4 +93,3 @@ export default {
   }
 }
 </style>
->>>>>>> fe5855765cb08abced04ce7330a31a6108f3b500
