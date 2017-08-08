@@ -6,9 +6,12 @@ import router from './router'
 import axios from 'axios'
 import mock from './mock/mock'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import directives from './directive'
 import store from './store'
 Vue.use(VueAwesomeSwiper)
-
+for(var key in directives){
+  Vue.directive(key,directives[key])
+}
 Vue.config.productionTip = false
 var instance = axios.create({
     baseURL: "api", //打包上线的时候替换baseURL

@@ -1,15 +1,15 @@
 <template>
-  <div class="nav-tab" v-affix="20">
+  <div class="nav-tab" v-Affix="0">
      <div class="nav-recommend">推荐</div>
-      <div class="scroll-view">      
+      <div class="scroll-view">
            <swiper :options="swiperOption" ref="mySwiper" >
             <swiper-slide v-for="i in navList"  id="navlists">
                {{i.name}}
-            </swiper-slide>  
-           </swiper>    
+            </swiper-slide>
+           </swiper>
       </div>
-      
-     <slot name="downkey" class="downkey">dfdf</slot>
+
+     <slot name="downkey" class="downkey"></slot>
   </div>
 </template>
 
@@ -43,28 +43,6 @@ export default {
           slidesPerView:'auto'
         }
     }
-  },
-  directives:{
-    affix:{
-        inserted: function(el, binding) {
-            var els = el;
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > binding.value) {
-                    $(els).css({
-                        'position': 'fixed'
-                    }).animate({
-                        'top': 0,
-                        'left': 0
-                    })
-                } else {
-                    $(els).css({
-                        'position': 'relative'
-                    })
-                }
-            })
-
-        }
-    }
   }
 }
 </script>
@@ -76,6 +54,7 @@ export default {
     height:.4rem;
     background:#fff;
     position:relative;
+    z-index: 100;
     font-size:.16rem;
     .nav-recommend{
       position:absolute;
@@ -94,7 +73,7 @@ export default {
       background-size: contain;
       width: .2rem;
       height: .2rem;
-      
+
     }
 }
 .scroll-view {
