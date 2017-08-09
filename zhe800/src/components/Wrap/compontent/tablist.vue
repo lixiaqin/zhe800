@@ -27,7 +27,11 @@ export default {
     return {
        
     }
-  },methods:{
+  },
+  mounted(){
+    $(this.$el).find('.classList').find('span').eq(0).addClass('choose')
+  },
+  methods:{
     tabfn(index){
      $(this.$el).find('.classify').eq(0).find('spam').addClass('choose');
       $(this.$el).find('.classify').find('span').removeClass('choose').eq(index).addClass('choose');
