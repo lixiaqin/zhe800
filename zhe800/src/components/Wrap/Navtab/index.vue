@@ -53,26 +53,23 @@ export default {
     width:100%;
     height:.4rem;
     background:#fff;
-    position:relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
     z-index: 100;
     font-size:.16rem;
     .nav-recommend{
-      position:absolute;
-      left:0;
-      top:0;
       width:.6rem;
       height:.4rem;
       text-align:center;
       line-height:.4rem;
     }
     .downkey{
-      position:absolute;
-      right:.1rem;
-      top:.1rem;
       background: url(//status.tuanimg.com/statics/mz/index/img/drop-down-bg.png) no-repeat 0 0;
       background-size: contain;
       width: .2rem;
       height: .2rem;
+      margin:0 .1rem;
 
     }
 }
@@ -80,7 +77,6 @@ export default {
   width:70%;
   height:.4rem;
   line-height:.4rem;
-  margin-left:15%;
   .swiper-slide{
     padding:0 .05rem;
     width:65px;text-align:center

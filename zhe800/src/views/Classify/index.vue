@@ -7,7 +7,7 @@
         <div class="header-center" slot="header-center"><p>连衣裙</p></div>
      </HeaderBar>
      <TabList :classifyList='classifyList'>
-        <div slot="classif">sdfdsfds</div>
+        <div slot="classif"><Classif></Classif></div>
         <div slot="sale">sdfsdfds</div>
      </TabList>
      
@@ -17,6 +17,7 @@
 <script>
 import HeaderBar from '@/components/Header'
 import TabList from '@/components/Wrap/compontent/tablist'
+import Classif from './classif'
 export default {
   name: 'Classify',
   data () {
@@ -32,7 +33,8 @@ export default {
   },
   components:{
       HeaderBar,
-      TabList
+      TabList,
+      Classif
   }
 }
 </script>
