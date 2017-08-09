@@ -54,6 +54,7 @@ export default {
           that.newPeopleimg=res.data.newPeopleimg;
           that.threeList=res.data.threeList;
       })
+
   }
 }
 </script>
@@ -100,7 +101,6 @@ html,body{
     }
     .three-banner{
         width:100%;
-        height:1.5rem;
         .three-banner-list{
             float:left;
               width:50%;

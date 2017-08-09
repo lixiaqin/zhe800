@@ -1,10 +1,8 @@
-
-
 <template>
    <div class="home-page">
      <HeaderBar>
-        <div class="header-center" slot="header-center"></div>  
-        <div class="header-right" slot="header-right" @click="fn">
+        <div class="header-center" slot="header-center"></div>
+        <div class="header-right" slot="header-right">
         <router-link to="/classify">
           <img src="//status.tuanimg.com/statics/mz/index/img/category-icon.png" />
         </router-link>
@@ -32,10 +30,11 @@ export default {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  methods:{
-    fn(){
-      console.log(1)
-    }
+  created(){
+      var that = this
+      this.$axios.get('/classType').then(function (res) {
+        that.$store.dispatch('route/setRouter',res.data)
+      })
   }
 }
 </script>

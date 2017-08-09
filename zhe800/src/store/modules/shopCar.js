@@ -1,4 +1,5 @@
 var shopCar={
+  namespaced: true,
   state:{
     buyList:''
   },

@@ -1,5 +1,6 @@
 let userData=JSON.parse(localStorage.getItem('user'))
 var userLogin={
+  namespaced: true,
   state:{
     userInfo:''||userData
   },

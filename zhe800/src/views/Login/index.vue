@@ -53,7 +53,7 @@
     methods:{
       loginDo(){
           if(this.loginInfo.user&&this.loginInfo.user){
-            this.$store.dispatch('login_in',this.loginInfo)
+            this.$store.dispatch('userLogin/login_in',this.loginInfo)
             this.$router.push('/')
           }else{
               alert('用户名和密码不能为空')
