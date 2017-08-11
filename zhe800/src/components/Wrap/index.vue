@@ -1,8 +1,5 @@
 <template>
   <div class="wrap-page">
-     <Navtab>
-       <div slot="downkey" class="downkey"></div>
-     </Navtab>
      <womenwear>
         <div slot="hotSale"> <renderPrice> </renderPrice></div>
         <div slot="hotBrand"><renderPrices></renderPrices></div>

@@ -2,14 +2,16 @@
   <div class="render-price">
 
     <div class="PriceDetail" v-for='item in priceList'>
-      <div class="pimg">
-         <img :src="item.imgurl"/>
-      </div>
-      <div class='Pdiscount'>
-        <p class='Pintroduce'>{{item.introduce}}</p>
-        <p class='pman'><span  v-if='item.block'>{{item.man}}</span></p>
-        <p class='Ppricecount'><span>￥{{item.price}}</span><span>{{item.discount}}</span></p>
-      </div>
+     <router-link :to="'/detail/'+item.id" :list='list'>
+         <div class="pimg">
+            <img :src="item.imgurl"/>
+        </div>
+        <div class='Pdiscount'>
+            <p class='Pintroduce'>{{item.introduce}}</p>
+            <p class='pman'><span  v-if='item.block'>{{item.man}}</span></p>
+            <p class='Ppricecount'><span>￥{{item.price}}</span><span>{{item.discount}}</span></p>
+        </div>
+     </router-link>
     </div>
   </div>
 </template>
@@ -21,16 +23,20 @@ export default {
   components:{
 
   },
+  
   data () {
     return {
-        priceList:[]
+        priceList:[],
+        list:['aaa']
     }
   },
   created(){
       let that=this;
       this.$axios.get('/priceData').then((res)=>{
           that.priceList=res.data.explosionData;
+          
       })
+     
   }
 }
 </script>

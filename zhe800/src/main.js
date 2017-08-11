@@ -9,8 +9,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import directives from './directive'
 import store from './store'
 Vue.use(VueAwesomeSwiper)
-for(var key in directives){
-  Vue.directive(key,directives[key])
+Vue.config.silent = true;
+for (var key in directives) {
+    Vue.directive(key, directives[key])
 }
 Vue.config.productionTip = false
 var instance = axios.create({
@@ -19,7 +20,15 @@ var instance = axios.create({
     headers: { 'X-Custom-Header': 'foobar' }
 });
 Vue.prototype.$axios = instance;
-/* eslint-disable no-new */
+
+
+Vue.filter('timeNum', function(value) {
+        if (value != ':' && value < 10) {
+            value = "0" + value
+        }
+        return value;
+    })
+    /* eslint-disable no-new */
 new Vue({
     el: '#app',
     router,

@@ -8,16 +8,18 @@ import ShopCar from '@/views/ShopCar'
 import Special from '@/views/Special'
 import Login from '@/views/Login'
 import Classify from '@/views/Classify'
+import Shoppage from '@/views/Detail/component/shoppage'
+import Detail from '@/views/Detail'
 import store from '@/store/index'
 Vue.use(Router)
-let data=store.state['routerData']
+let data = store.state['routerData']
 console.log(data)
-let classRouter=[]
-// routerData.forEach(function (v,i) {
-//   let item={
-//     path:v.tag[0]
-//   }
-// })
+let classRouter = []
+    // routerData.forEach(function (v,i) {
+    //   let item={
+    //     path:v.tag[0]
+    //   }
+    // })
 export default new Router({
 
     routes: [{
@@ -60,6 +62,18 @@ export default new Router({
             path: '/classify',
             name: 'Classify',
             component: Classify
+                // component: resolve => require(['@/views/Detail'], resolve)
+        },
+        {
+            path: '/detail/:id',
+            name: 'detail',
+            component: Detail
+                // component: resolve => require(['@/views/Detail'], resolve)
+        },
+        {
+            path: '/shoppage/:id',
+            name: 'shoppage',
+            component: Shoppage
                 // component: resolve => require(['@/views/Detail'], resolve)
         }
 
